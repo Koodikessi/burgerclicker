@@ -1,30 +1,32 @@
-import React from 'react';
-import { NavLink } from "react-router-dom";
-import iconburger from "./icon-burger.png";
-import iconcoupon from "./icon-coupon.png";
-import iconboy from "./icon-boy.png";
+import React from "react";
+import { Link } from "react-router-dom";
+
+import iconburger from "./images/icon-burger.png";
+import iconboy from "./images/icon-boy.png";
+import iconcoupon from "./images/icon-coupon.png";
 
 function Menu(props) {
-    return (
-      <div className="menu">
+  return (
+    <div className="menu">
+      <Link to="/">
         <div>
-          <NavLink to="/" exact activeClassName="menu--active">
-            <img src={iconburger} alt="GAME" />
-          </NavLink>
+          <img src={iconburger} alt="game" />
         </div>
+      </Link>
+      <Link to="/coupon">
         <div>
-          <NavLink to="/coupons" activeClassName="menu--active">
-            <img src={iconcoupon} alt="COUPONS"/>
-            {props.claimableCoupons ? <span className="badge">{props.claimableCoupons}</span> : <span></span>}
-          </NavLink>
+          <img src={iconcoupon} alt="coupons" />
+          <span className="badge">{props.claimableCoupons}</span>
         </div>
-        <div>
-          <NavLink to="/profile" activeClassName="menu--active">
-            <img src={iconboy} alt="PROFILE"/>
-          </NavLink>
-        </div>
-      </div>
-    );
-  }
+      </Link>
 
-  export default Menu;
+      <Link to="/profile">
+        <div>
+          <img src={iconboy} alt="profile" />
+        </div>
+      </Link>
+    </div>
+  );
+}
+
+export default Menu;
