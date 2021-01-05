@@ -34,7 +34,10 @@ class Clicker extends Component {
               <Game clicks={this.state.clicks} setClicks={this.setClicks} />
             )}
           />
-          <Route path="/coupon" component={Coupons} />
+          <Route
+            path="/coupon"
+            render={(props) => <Coupons clicks={this.state.clicks} />}
+          />
           <Route path="/profile" component={Profile} />
           <Menu claimableCoupons={7} />
         </div>
