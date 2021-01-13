@@ -61,7 +61,10 @@ class Clicker extends Component {
               />
             )}
           />
-          <Route path="/profile" component={Profile} />
+          <Route
+            path="/profile"
+            render={(props) => <Profile coupons={this.state.coupons} />}
+          />
           <Menu claimableCoupons={7} />
         </div>
       </Router>
